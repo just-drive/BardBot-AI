@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "config:base",
+    ":skipStatusChecks"
+  ],
+  "ignoreDeps": ["prisma"],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  }
+}
