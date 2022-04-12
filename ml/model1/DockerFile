@@ -1,0 +1,14 @@
+FROM tensorflow/tensorflow
+
+#RUN pip install for python packages required for this ml-model's purposes.
+
+#RUN mkdir modelname for each folder in this directory
+RUN mkdir modelname
+
+#Set ENV variables -> ENV ENVAR_NAME=value
+ENV ENVAR_NAME=value
+
+COPY train.py ./train.py
+COPY inference.py ./inference.py
+
+RUN python3 train.py
