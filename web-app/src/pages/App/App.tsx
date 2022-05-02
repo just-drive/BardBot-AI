@@ -2,6 +2,12 @@ import React from "react";
 import { useAppSelector, useAppDispatch } from "store/hooks";
 import logo from "./logo.svg";
 import "./App.css";
+import { Layout } from "../../Layout/Layout";
+import Hero from "../../components/Hero/Hero";
+import Header from "../../components/Header/Header";
+import About from "../AboutUs/About";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import {
   login,
   logout,
@@ -26,43 +32,20 @@ function App(): JSX.Element {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          create-react-app with Typescript, Redux & Docker with hot reloading.
-        </p>
-        <div>
-          <a className="App-link" onClick={handleLogin}>
-            Login
-          </a>
-          &nbsp;
-          <a className="App-link" onClick={handleLogout}>
-            Logout
-          </a>
-        </div>
-        <div>
-          {status === API_STATUS.pending && <p>Loading...</p>}
-          {status === API_STATUS.failed && (
-            <pre>{JSON.stringify(apiError, null, 2)}</pre>
-          )}
-          {status === API_STATUS.succeeded && (
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-          )}
-        </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Layout>
+          <Routes>
+            <Route path="/" element={App}></Route>
+            <Route path="/.sourceCode()" element={App}></Route>{" "}
+            {/*Will link to github*/}
+            <Route path="/.about()" element={About}></Route>{" "}
+            {/*Will link to short about page*/}
+          </Routes>
+          <Hero />
+        </Layout>
+      </div>
+    </Router>
   );
 }
 
