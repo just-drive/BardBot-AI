@@ -3,6 +3,7 @@ import React from 'react';
 import  { AiFillGithub } from 'react-icons/ai';
 import { DiCssdeck } from 'react-icons/di';
 
+
 import bbai from '../../images/smaller.png';
 
 import { Nav, NavLink, Bars, NavMenu} from './HeaderStyles';
@@ -22,11 +23,12 @@ const Header = () => (
                     <NavLink to="/" activeStyle>
                         .contactUs()
                     </NavLink>
-                    <NavLink to="/" activeStyle>
+                    <NavLink to="/SourceCode" activeStyle>
                         .sourceCode()
                     </NavLink>
                 </NavMenu>
-            
+
+           
         </Nav>
     
     </>
