@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAppSelector, useAppDispatch } from "store/hooks";
 import logo from "./logo.svg";
 import "./App.css";
+import { Layout } from "../../Layout/Layout";
+import Hero from "../../components/Hero/Hero";
+import Header from "../../components/Header/Header";
+import About from "../AboutUs/About";
+import SourceCode from "../SourceCode/SourceCode";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./themes.js"; //for light and dark theme
 import {
   login,
   logout,
@@ -11,58 +19,33 @@ import {
   selectError,
 } from "store/user/userSlice";
 
+const StyledApp = styled.div``; //<StyledApp></StyledApp> replaces div classname=app
+
 function App(): JSX.Element {
-  const dispatch = useAppDispatch();
-  const user = useAppSelector(selectUser);
-  const status = useAppSelector(selectUserStatus);
-  const apiError = useAppSelector(selectError);
-
-  const handleLogin = () => {
-    dispatch(login());
-  };
-
-  const handleLogout = () => {
-    dispatch(logout());
+  const [theme, setTheme] = useState("dark"); //changes state based on toggle
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          create-react-app with Typescript, Redux & Docker with hot reloading.
-        </p>
-        <div>
-          <a className="App-link" onClick={handleLogin}>
-            Login
-          </a>
-          &nbsp;
-          <a className="App-link" onClick={handleLogout}>
-            Logout
-          </a>
-        </div>
-        <div>
-          {status === API_STATUS.pending && <p>Loading...</p>}
-          {status === API_STATUS.failed && (
-            <pre>{JSON.stringify(apiError, null, 2)}</pre>
-          )}
-          {status === API_STATUS.succeeded && (
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-          )}
-        </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <StyledApp>
+          <button onClick={() => themeToggler()}>Theme</button>
+          <Layout>
+            <Routes>
+              <Route path="/" element={App}></Route>
+              <Route path="/SourceCode()" element={SourceCode}></Route>{" "}
+              {/*Will link to github*/}
+              <Route path="/about()" element={About}></Route>{" "}
+              {/*Will link to short about page*/}
+            </Routes>
+            <Hero />
+          </Layout>
+        </StyledApp>
+      </ThemeProvider>
+    </Router>
   );
 }
 

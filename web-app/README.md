@@ -51,3 +51,5 @@ React-Typescript-Redux boilerplate with docker to run the code in isolated docke
 * Network timeout error on docker compose up 
     * Rerun docker compose command
 
+### notes
+* run command `npm i --save-dev @types/styled-components`
