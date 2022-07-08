@@ -1,29 +1,16 @@
 import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
-import { Div3 } from "./SubmitComponentStyles";
-// This is the component that handles midi2wav and wave2midi
-class SubmitComponent extends React.Component {
+import { Div3 } from "./ClusterSubmitStyles";
+
+class ClusterSubmit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       files: [],
-      title: "",
-      description: "",
       showSubmit: false,
     };
   }
-
-  handleSongNameChange = (event) => {
-    this.setState({
-      title: event.target.value,
-    });
-  };
-  handleDescriptionChange = (event) => {
-    this.setState({
-      description: event.target.value,
-    });
-  };
 
   handleFileChange = (event) => {
     let files = event.target.files;
@@ -46,24 +33,12 @@ class SubmitComponent extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <Div3>
+      <div>
         <form onSubmit={this.onFormSubmit}>
-          <h1>Upload Your Tunes </h1>
+          <h1>Upload Your Tunes</h1>
           {/* This is for song name */}
-          <input
-            type="text"
-            name="title"
-            placeholder="Your song name"
-            onChange={this.handleSongNameChange}
-          />
-          {/* This is for description */}
-          <input
-            type="text"
-            name="description"
-            placeholder="Your song description"
-            onChange={this.handleDescriptionChange}
-          />
           {/* This is for file  */}
+          <h4>Clustering</h4>
           <input
             type="file"
             name="file"
@@ -75,9 +50,9 @@ class SubmitComponent extends React.Component {
             Submit
           </button>
         </form>
-      </Div3>
+      </div>
     );
   }
 }
 
-export default SubmitComponent;
+export default ClusterSubmit;

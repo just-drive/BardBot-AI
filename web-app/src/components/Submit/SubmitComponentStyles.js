@@ -8,7 +8,7 @@ export const MenuDiv = styled.div`
 
 export const Div1 = styled.div`
   width: 100px;
-  position: fixed;
+  position: absolute;
   top: 100px;
   left: 50px;
   bottom: 100px;
@@ -19,6 +19,21 @@ export const Div2 = styled.div`
   top: 50%;
   left: 50px;
   bottom: 100px;
+`;
+export const Div3 = styled.div`
+  max-width: 100px;
+  align-content: center;
+  justify-content: space-around;
+  margin: auto;
+  position: absolute;
+  float: right;
+  top: 0px;
+  text-align: right;
+  right: -500%;
+  z-index: 100;
+  bottom: 100px;
+  padding: 20px;
+  transform: translateX(-50%);
 `;
 
 export const Button = styled.button`
