@@ -41,7 +41,6 @@ class LeftSideMenu extends React.Component {
     this.onMotifGeneratorClick = this.onMotifGeneratorClick.bind(this);
     this.onLyricGeneratorClick = this.onLyricGeneratorClick.bind(this);
   }
-
   // Set all other components to false to only show 1 at a time
   onButtonClick = () => {
     if (this.state.showComponent) {
@@ -148,9 +147,8 @@ class LeftSideMenu extends React.Component {
     return (
       <MenuDiv>
         <Div1>
-          <ServicesLabel>Services Available</ServicesLabel>
-          <SectionLabel>Utilities:</SectionLabel>
-
+          <h1>Services Available</h1>
+          <h3>Utilities:</h3>
           <div>
             <Button onClick={this.onClusterClick}>Clustering</Button>
             {this.state.showCluster ? <ClusterSubmit /> : null}
@@ -167,7 +165,7 @@ class LeftSideMenu extends React.Component {
           </div>
         </Div1>
         <Div2>
-          <SectionLabel>Songwriter Tools:</SectionLabel>
+          <h1>Songwriter Tools:</h1>
           <h3></h3>
           <div>
             <Button onClick={this.onTitleGeneratorClick}>
