@@ -9,7 +9,6 @@ import MotifGenerator from "../MotifGenerator/MotifGenerator";
 import LyricGenerator from "../LyricGenerator/LyricGenerator";
 import TitleGenerator from "../TitleGenerator/TitleGenerator";
 // This requires the other 6 components on the menu ^^
-
 import { Button, Div1, Div2, MenuDiv } from "./LeftSideMenuStyles";
 
 function clickMe() {
@@ -141,7 +140,7 @@ class LeftSideMenu extends React.Component {
       <MenuDiv>
         <Div1>
           <h1>Services Available</h1>
-          <h3>Utilities:</h3>
+          <h3 styles="color: #2ecc71">Utilities:</h3>
           <div>
             <Button onClick={this.onClusterClick}>Clustering</Button>
             {this.state.showCluster ? <ClusterSubmit /> : null}

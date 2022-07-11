@@ -40,9 +40,10 @@ function App(): JSX.Element {
               <Route path="/" element={App}></Route>
               <Route path="/SourceCode()" element={SourceCode}></Route>{" "}
               {/*Will link to github*/}
-              <Route path="/about()" element={About}></Route>{" "}
+              <Route path="/about" element={<About />}></Route>{" "}
               {/*Will link to short about page*/}
             </Routes>
+
             <LeftSideMenu />
           </Layout>
         </StyledApp>

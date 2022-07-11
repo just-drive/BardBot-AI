@@ -11,19 +11,19 @@ const Header = () => (
   <>
     <Nav>
       <NavLink to="/">
-        <img src={bbai} alt="Logo" />
+        <img src={bbai} alt="Logo" exact />
       </NavLink>
       <Bars />
       <NavMenu>
-        <NavLink to="/" activeStyle>
+        <NavLink to="/about" activeStyle>
           .about()
         </NavLink>
         <NavLink to="/" activeStyle>
           .contactUs()
         </NavLink>
-        <NavLink to="/SourceCode" activeStyle>
+        <a href="https://github.com/just-drive/BardBot-AI" activeStyle>
           .sourceCode()
-        </NavLink>
+        </a>
       </NavMenu>
     </Nav>
   </>
