@@ -50,3 +50,8 @@ export const Button = styled.button`
     background-color: #65a765;
   }
 `;
+
+export const ClusterWrapper = styled.div`
+  position: fixed;
+  c
+`;
