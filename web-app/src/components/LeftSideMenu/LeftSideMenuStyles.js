@@ -3,26 +3,33 @@ import { NavLink as Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 //#90ee90;
 export const MenuDiv = styled.div`
-  background-color: #90ee90;
-  min-height: 100vh;
+  background-color: #008000;
+  min-height: 75vh;
   positon: absolute;
   padding-top: 2rem;
   padding-bottom: 2.5rem;
-  width: 25%;
+  width: 15%;
   bottom: 10px;
   margin-bottom: 100px;
   left: 100px;
 `;
 
 export const Div1 = styled.div`
-  background-color: grey;
+  background-color: transparent;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
+  margin-top: 50px;
 `;
-export const Div2 = styled.div``;
+export const Div2 = styled.div`
+  background-color: transparent;
+  padding-bottom: 2.5rem;
+  padding-top: 2.5rem;
+  margin-top: 100px;
+`;
 
 export const Button = styled.button`
   background-color: #c8ee90;
+  font-size: 120%;
   color: white;
   left: 10px;
   padding: 5px 15px;
@@ -31,9 +38,31 @@ export const Button = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0px 2px 2px lightgrey;
+  text-align: center;
+  margin-left: 15px;
   &:hover {
     background-color: #65a765;
   }
+`;
+
+export const SectionLabel = styled.h1`
+  color: White;
+  font-size: 1.7em;
+  border: 2px solid;
+  background: #98fb98;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding-right: 1rem;
+`;
+export const ServicesLabel = styled.h1`
+  color: White;
+  font-size: 1.7em;
+  border: 2px solid white;
+  background: #008000;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding-right: 1rem;
+  margin-bottom: 5px;
 `;
 
 // import styled from "styled-components";

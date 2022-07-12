@@ -8,8 +8,16 @@ import ClusterSubmit from "../ClusterSubmit/ClusterSubmit";
 import MotifGenerator from "../MotifGenerator/MotifGenerator";
 import LyricGenerator from "../LyricGenerator/LyricGenerator";
 import TitleGenerator from "../TitleGenerator/TitleGenerator";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // This requires the other 6 components on the menu ^^
-import { Button, Div1, Div2, MenuDiv } from "./LeftSideMenuStyles";
+import {
+  Button,
+  Div1,
+  Div2,
+  MenuDiv,
+  SectionLabel,
+  ServicesLabel,
+} from "./LeftSideMenuStyles";
 
 function clickMe() {
   alert("You clickMe");
@@ -33,6 +41,7 @@ class LeftSideMenu extends React.Component {
     this.onMotifGeneratorClick = this.onMotifGeneratorClick.bind(this);
     this.onLyricGeneratorClick = this.onLyricGeneratorClick.bind(this);
   }
+
   // Set all other components to false to only show 1 at a time
   onButtonClick = () => {
     if (this.state.showComponent) {
@@ -139,8 +148,9 @@ class LeftSideMenu extends React.Component {
     return (
       <MenuDiv>
         <Div1>
-          <h1>Services Available</h1>
-          <h3 styles="color: #2ecc71">Utilities:</h3>
+          <ServicesLabel>Services Available</ServicesLabel>
+          <SectionLabel>Utilities:</SectionLabel>
+
           <div>
             <Button onClick={this.onClusterClick}>Clustering</Button>
             {this.state.showCluster ? <ClusterSubmit /> : null}
@@ -157,7 +167,7 @@ class LeftSideMenu extends React.Component {
           </div>
         </Div1>
         <Div2>
-          <h1>Songwriter Tools:</h1>
+          <SectionLabel>Songwriter Tools:</SectionLabel>
           <h3></h3>
           <div>
             <Button onClick={this.onTitleGeneratorClick}>

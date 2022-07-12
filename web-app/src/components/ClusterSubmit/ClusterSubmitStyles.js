@@ -53,5 +53,5 @@ export const Button = styled.button`
 
 export const ClusterWrapper = styled.div`
   position: fixed;
-  c
+  right: 10%;
 `;

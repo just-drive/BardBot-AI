@@ -12,15 +12,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./themes.js"; //for light and dark theme
 import LeftSideMenu from "../../components/LeftSideMenu/LeftSideMenu";
-import {
-  login,
-  logout,
-  selectUser,
-  selectUserStatus,
-  API_STATUS,
-  selectError,
-} from "store/user/userSlice";
-
 const StyledApp = styled.div``; //<StyledApp></StyledApp> replaces div classname=app
 
 function App(): JSX.Element {

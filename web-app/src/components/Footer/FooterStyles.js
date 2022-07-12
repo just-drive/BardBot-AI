@@ -4,9 +4,9 @@ export const FooterWrapper = styled.section`
   padding: 2rem 48px 40px;
   box-sizing: content-box;
   position: fixed;
-  padding-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
   bottom: 0;
-  padding-top: 2.5rem;
+  padding-top: 0rem;
   height: 15vh;
   z-index: 1;
   margin-top: auto;
