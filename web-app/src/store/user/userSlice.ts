@@ -38,7 +38,7 @@ export const login = createAsyncThunk('user/login', async () => {
   try {
     const user: User = await asyncLoginAPIMockMethod();
     return user;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error);
   }
 });

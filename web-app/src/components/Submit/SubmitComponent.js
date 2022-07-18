@@ -1,4 +1,3 @@
-import axios, { post } from "axios";
 import React from "react";
 
 class SubmitComponent extends React.Component {
@@ -9,9 +8,7 @@ class SubmitComponent extends React.Component {
     };
   }
 
-  onChange(e) {
-    let files = e.target.files;
-  }
+  onChange() {}
 
   render() {
     return (

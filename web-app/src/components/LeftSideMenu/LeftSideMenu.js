@@ -1,8 +1,4 @@
 import React from "react";
-import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
-import { DiCssdeck } from "react-icons/di";
-import bbai from "../../images/smaller.png";
 import SubmitComponent from "../Submit/SubmitComponent";
 
 import { Button, Div1, Div2, MenuDiv } from "./LeftSideMenuStyles";

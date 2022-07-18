@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   background: "transparent";
   height: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
 `;
@@ -39,6 +39,7 @@ export const Bars = styled(FaBars)`
     cursor: pointer;
   }
 `;
+
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
