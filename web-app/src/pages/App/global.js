@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     background: ${({ theme }) => theme.backgroundImage};
     background-repeat: no-repeat;
-    background
+    background-size:cover;
     color: ${({ theme }) => theme.text};
     display: flex;
     flex-direction: column;
