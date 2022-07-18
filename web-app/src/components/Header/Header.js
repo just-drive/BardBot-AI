@@ -1,5 +1,9 @@
 import bbai from "../../images/smaller.png";
-
+import { Link } from "react-router-dom";
+import React from "react";
+import { AiFillGithub } from "react-icons/ai";
+import { DiCssdeck } from "react-icons/di";
+import { Nav, NavLink, Bars, NavMenu } from "./HeaderStyles";
 import { Nav, NavLink, Bars, NavMenu } from "./HeaderStyles";
 import { ThemeProvider } from "styled-components";
 import Toggle from "../ThemeToggle/Toggle";
@@ -23,17 +27,15 @@ const Header = () => {
         </div>
         <Bars />
         <NavMenu>
-          <div class="middle">
-            <NavLink class="item" to="/" activestyle>
-              .about()
-            </NavLink>
-            <NavLink class="item" to="/" activestyle>
-              .contactUs()
-            </NavLink>
-            <NavLink class="item" to="/SourceCode" activestyle>
-              .sourceCode()
-            </NavLink>
-          </div>
+          <NavLink to="/about" activeStyle>
+            .about()
+          </NavLink>
+          <NavLink to="/" activeStyle>
+            .contactUs()
+          </NavLink>
+          <a href="https://github.com/just-drive/BardBot-AI" activeStyle>
+            .sourceCode()
+          </a>
           <div class="right">
             <ThemeProvider theme={themeMode}>
               <Toggle theme={theme} toggleTheme={toggleTheme} />

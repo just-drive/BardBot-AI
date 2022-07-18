@@ -1,12 +1,13 @@
 import "./App.css";
 import { Layout } from "../../Layout/Layout";
 import Hero from "../../components/Hero/Hero";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import About from "../AboutUs/About";
 import SourceCode from "../SourceCode/SourceCode";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
-import { GlobalStyles } from "./global";
-
+import styled, { ThemeProvider } from "styled-components";
+import LeftSideMenu from "../../components/LeftSideMenu/LeftSideMenu";
 const StyledApp = styled.div``; //<StyledApp></StyledApp> replaces div classname=app
 
 function App(): JSX.Element {
