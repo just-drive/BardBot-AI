@@ -13,22 +13,4 @@ const ToggleContainer = styled.button`
   position: relative;
   width: 8rem;
   height: 4rem;
-
-  svg {
-    height: auto;
-    width: 2.5rem;
-    transition: all 0.3s linear;
-
-    // sun icon
-    &:first-child {
-      transform: ${({ lightTheme }) =>
-        lightTheme ? "translateY(0)" : "translateY(100px)"};
-    }
-
-    // moon icon
-    &:nth-child(2) {
-      transform: ${({ lightTheme }) =>
-        lightTheme ? "translateY(-100px)" : "translateY(0)"};
-    }
-  }
 `;

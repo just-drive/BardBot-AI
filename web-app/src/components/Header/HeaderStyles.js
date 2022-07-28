@@ -6,9 +6,7 @@ export const Nav = styled.nav`
   background: "transparent";
   height: 80px;
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1000px) / 2);
-  z-index: 10;
+  align-items: center;
 `;
 
 export const NavLink = styled(Link)`
@@ -28,6 +26,7 @@ export const NavLink = styled(Link)`
 export const Bars = styled(FaBars)`
   display: none;
   color: #fff;
+  flex: right;
 
   @media screen and (max-width: 760px) {
     display: block;
@@ -39,8 +38,10 @@ export const Bars = styled(FaBars)`
     cursor: pointer;
   }
 `;
+
 export const NavMenu = styled.div`
   display: flex;
+  flex: center;
   align-items: center;
   margin-right: -24px;
 

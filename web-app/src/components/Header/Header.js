@@ -26,13 +26,13 @@ const Header = () => {
         </div>
         <Bars />
         <NavMenu>
-          <NavLink to="/about" activeStyle>
+          <NavLink to="/about" activestyle>
             .about()
           </NavLink>
-          <NavLink to="/" activeStyle>
+          <NavLink to="/" activestyle>
             .contactUs()
           </NavLink>
-          <a href="https://github.com/just-drive/BardBot-AI" activeStyle>
+          <a href="https://github.com/just-drive/BardBot-AI" activestyle>
             .sourceCode()
           </a>
           <div class="right">
