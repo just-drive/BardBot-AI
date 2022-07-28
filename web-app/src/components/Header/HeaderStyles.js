@@ -6,11 +6,7 @@ export const Nav = styled.nav`
   background: "transparent";
   height: 80px;
   display: flex;
-<<<<<<< HEAD
-  justify-content: center;
-=======
   justify-content: space-between;
->>>>>>> origin/six-components
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
 `;

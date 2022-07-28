@@ -22,7 +22,7 @@ const Header = () => {
       <Nav>
         <div class="left">
           <NavLink to="/">
-            <img src={bbai} alt="Logo" />
+            <img src={bbai} alt="Logo" exact />
           </NavLink>
         </div>
         <Bars />
