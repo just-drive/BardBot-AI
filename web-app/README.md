@@ -1,37 +1,48 @@
 # React-Typescript-Redux-Docker Boilerplate
+
 React-Typescript-Redux boilerplate with docker to run the code in isolated docker env. Folder structure added to get started with basic web-applications. Docker setup to cache node_modules and reinstall packages when package.json changes. Using Chokidar to ensure HMR works with docker.
 
 ## Technologies
-* Docker
-    * Docker Compose
-* Chokidar (hot reloading)
-* React biolerplate with Typescript ```create-react-app```
-* Redux (Thunk)
-* Nginx (prod)
-* Prettier
-* ESLint
+
+- Docker
+  - Docker Compose
+- Chokidar (hot reloading)
+- React biolerplate with Typescript `create-react-app`
+- Redux (Thunk)
+- Nginx (prod)
+- Prettier
+- ESLint
 
 ## Build Instructions
+
 ### Pull Code
-* ```git clone git@github.com:akash4393/react-typescript-redux-docker.git```
-* ```cd ./react-typescript-redux-docker```
+
+- `git clone git@github.com:akash4393/react-typescript-redux-docker.git`
+- `cd ./react-typescript-redux-docker`
+
 ### Start (Dev)
-* ```docker compose up --build```
-* Go to <http://localhost:3000>
+
+- `docker compose up --build`
+- Go to <http://localhost:3000>
 
 ### Start (prod)
-* ```docker compose -f docker-compose.prod.yml up --build```
-* Go to <http://localhost:1337>
+
+- `docker compose -f docker-compose.prod.yml up --build`
+- Go to <http://localhost:1337>
 
 ### Stop
-* Stop process ```Cmd + C```
-* ```docker compose down```
+
+- Stop process `Cmd + C`
+- `docker compose down`
 
 ### Run Linter
-* ```npm run lint``` (Auto runs on build & --fix on commit)
+
+- `npm run lint` (Auto runs on build & --fix on commit)
 
 ### Setting up vscode
-* Add the following to vscode settings.json
+
+- Add the following to vscode settings.json
+
 ```javascript
 "[typescriptreact]": {
     "editor.formatOnSave": true,
@@ -48,8 +59,12 @@ React-Typescript-Redux boilerplate with docker to run the code in isolated docke
 ```
 
 ## Troubleshoot
-* Network timeout error on docker compose up 
-    * Rerun docker compose command
+
+- Network timeout error on docker compose up
+  - Rerun docker compose command
 
 ### notes
-* run command `npm i --save-dev @types/styled-components`
+
+- run command `npm i --save-dev @types/styled-components`
+  js-file-download
+  axios
