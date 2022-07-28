@@ -4,7 +4,6 @@ import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { DiCssdeck } from "react-icons/di";
 import { Nav, NavLink, Bars, NavMenu } from "./HeaderStyles";
-import { Nav, NavLink, Bars, NavMenu } from "./HeaderStyles";
 import { ThemeProvider } from "styled-components";
 import Toggle from "../ThemeToggle/Toggle";
 import { useDarkMode } from "components/ThemeToggle/userDarkMode";
