@@ -1,7 +1,7 @@
 import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
-import { davinciCompletion } from "../../secrets";
+import { query } from "../../ai/openai";
 
 class TitleGenerator extends React.Component {
   constructor(props) {
@@ -57,16 +57,14 @@ class TitleGenerator extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const prompt =
-      this.state.genre != "" ? `Genre: ${this.state.genre}\n` : "" +
-      this.state.theme != "" ? `Theme: ${this.state.theme}\n` : '' +
-      this.state.lyrics != "" ? `Lyrics: \n${this.state.lyrics}\n` : '' +
+      (this.state.genre.trim().length != 0 ? `Genre: ${this.state.genre}\n` : '') +
+      (this.state.theme.trim().length != 0 ? `Theme: ${this.state.theme}\n` : '') +
+      (this.state.lyrics.trim().length != 0 ? `Lyrics: \n${this.state.lyrics}\n` : '') +
       `Title:`;
-    davinciCompletion(prompt, 
-      (completion) => {
-        console.log(completion);
-        alert(completion);
-      }
-    );
+    const completion = await query({prompt: prompt});
+    const title = completion.split("\n")[0];
+    console.log(completion, title);
+    alert(title);
   }
 
   render() {
