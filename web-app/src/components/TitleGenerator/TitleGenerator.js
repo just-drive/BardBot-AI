@@ -1,6 +1,4 @@
-import axios, { post } from "axios";
-import React, { useState, useRef } from "react";
-import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
+import React from "react";
 import { query } from "../../ai/openai";
 
 class TitleGenerator extends React.Component {
@@ -15,44 +13,16 @@ class TitleGenerator extends React.Component {
   }
 
   handleGenreChange = (event) => {
-    this.setState(
-      {
-        genre: event.target.value,
-      },
-      () => {
-        console.log(this.state.genre);
-      }
-    );
+    this.setState({ genre: event.target.value });
   };
   handlePaceChange = (event) => {
-    this.setState(
-      {
-        theme: event.target.value,
-      },
-      () => {
-        console.log(this.state.theme);
-      }
-    );
+    this.setState({ theme: event.target.value });
   };
   handleThemeChange = (event) => {
-    this.setState(
-      {
-        pace: event.target.value,
-      },
-      () => {
-        console.log(this.state.pace);
-      }
-    );
+    this.setState({ pace: event.target.value });
   };
   handleLyricsChange = (event) => {
-    this.setState(
-      {
-        lyrics: event.target.value,
-      },
-      () => {
-        console.log(this.state.lyrics);
-      }
-    );
+    this.setState({ lyrics: event.target.value });
   };
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -61,9 +31,8 @@ class TitleGenerator extends React.Component {
       (this.state.theme.trim().length != 0 ? `Theme: ${this.state.theme}\n` : '') +
       (this.state.lyrics.trim().length != 0 ? `Lyrics: \n${this.state.lyrics}\n` : '') +
       `Title:`;
-    const completion = await query({prompt: prompt});
+    const completion = await query({ prompt: prompt });
     const title = completion.split("\n")[0];
-    console.log(completion, title);
     alert(title);
   }
 
@@ -72,11 +41,11 @@ class TitleGenerator extends React.Component {
     return (
       <div>
         <div>
-          <input id="genre_input" onChange={this.handleGenreChange} 
+          <input id="genre_input" onChange={this.handleGenreChange}
             placeholder="Genre" />
         </div>
         <div>
-          <input id="pace_input" onChange={this.handlePaceChange} 
+          <input id="pace_input" onChange={this.handlePaceChange}
             placeholder="Pace (bpm)" />
         </div>
         <div>
@@ -85,7 +54,7 @@ class TitleGenerator extends React.Component {
         </div>
         <div>
           <textarea id="lyrics_textarea" onChange={this.handleLyricsChange}
-           placeholder="Lyrics" />
+            placeholder="Lyrics" />
         </div>
         <button type="submit" value="Submit" onClick={this.handleSubmit}>
           Submit

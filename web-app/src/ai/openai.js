@@ -1,12 +1,8 @@
 // this is really bad practice, but it's a quick and dirty way to get the secrets
-const openai_api_key = "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";
+const openai_api_key = "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";
 
-/*const { Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
-  apiKey: openai_api_key,
-});
-export const openai = new OpenAIApi(configuration);
-*/
+// 7/29 17:00: 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
+// 7/29 18:09: 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
 
 const DEFAULT_PARAMS = {
   "model": "text-davinci-002",
@@ -28,8 +24,6 @@ export async function query(params = {}) {
     body: JSON.stringify(params_)
   };
   const response = await fetch('https://api.openai.com/v1/completions', requestOptions);
-  console.log(response);
   const data = await response.json();
-  console.log(data);
   return data.choices[0].text;
 }
