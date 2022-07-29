@@ -1,7 +1,7 @@
 import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
-import { openai } from "../../secrets";
+import { davinciCompletion } from "../../secrets";
 
 class TitleGenerator extends React.Component {
   constructor(props) {
@@ -55,28 +55,18 @@ class TitleGenerator extends React.Component {
     );
   };
   handleSubmit = async (event) => {
-    alert("All data entered");
     event.preventDefault();
-
-    const response = await openai.createCompletion({
-      model: "text-davinci-002",
-      prompt: 
-        state.genre != "" ? `Genre: ${this.state.genre}\n` : "" +
-        state.theme != "" ? `Theme: ${this.state.theme}\n` : '' +
-        state.lyrics != "" ? `Lyrics: \n${this.state.lyrics}\n` : '' +
-        `Title:`,
-      temperature: 0.7,
-      max_tokens: 256,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    });
-
-    console.log(response);
-
-    const title = response.choices[0].text;
-    alert(`Title: ${title}`);
-
+    const prompt =
+      this.state.genre != "" ? `Genre: ${this.state.genre}\n` : "" +
+      this.state.theme != "" ? `Theme: ${this.state.theme}\n` : '' +
+      this.state.lyrics != "" ? `Lyrics: \n${this.state.lyrics}\n` : '' +
+      `Title:`;
+    davinciCompletion(prompt, 
+      (completion) => {
+        console.log(completion);
+        alert(completion);
+      }
+    );
   }
 
   render() {
@@ -84,17 +74,20 @@ class TitleGenerator extends React.Component {
     return (
       <div>
         <div>
-          <input id="genre_input" onChange={this.handleGenreChange} />
+          <input id="genre_input" onChange={this.handleGenreChange} 
+            placeholder="Genre" />
         </div>
         <div>
           <input id="pace_input" onChange={this.handlePaceChange} 
-            placeholder="Enter a number (BPM) between 40 and 160" />
+            placeholder="Pace (bpm)" />
         </div>
         <div>
-          <input id="theme_input" onChange={this.handleThemeChange} />
+          <input id="theme_input" onChange={this.handleThemeChange}
+            placeholder="Theme" />
         </div>
         <div>
-          <textarea id="lyrics_textarea" onChange={this.handleLyricsChange} />
+          <textarea id="lyrics_textarea" onChange={this.handleLyricsChange}
+           placeholder="Lyrics" />
         </div>
         <button type="submit" value="Submit" onClick={this.handleSubmit}>
           Submit

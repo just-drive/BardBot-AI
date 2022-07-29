@@ -3,5 +3,8 @@
     "@theme-toggles/react": "^4.1.0",
     "axios": "^0.27.2",
     "react-icons": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.25"
   }
 }
