@@ -1,50 +1,30 @@
-import React from "react";
-import { useAppSelector, useAppDispatch } from "store/hooks";
-import logo from "./logo.svg";
 import "./App.css";
 import { Layout } from "../../Layout/Layout";
 import Hero from "../../components/Hero/Hero";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import About from "../AboutUs/About";
+import SourceCode from "../SourceCode/SourceCode";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import {
-  login,
-  logout,
-  selectUser,
-  selectUserStatus,
-  API_STATUS,
-  selectError,
-} from "store/user/userSlice";
+import styled, { ThemeProvider } from "styled-components";
+import LeftSideMenu from "../../components/LeftSideMenu/LeftSideMenu";
+const StyledApp = styled.div``; //<StyledApp></StyledApp> replaces div classname=app
 
 function App(): JSX.Element {
-  const dispatch = useAppDispatch();
-  const user = useAppSelector(selectUser);
-  const status = useAppSelector(selectUserStatus);
-  const apiError = useAppSelector(selectError);
-
-  const handleLogin = () => {
-    dispatch(login());
-  };
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-
   return (
     <Router>
-      <div className="App">
+      <StyledApp>
         <Layout>
           <Routes>
             <Route path="/" element={App}></Route>
-            <Route path="/.sourceCode()" element={App}></Route>{" "}
+            <Route path="/SourceCode()" element={SourceCode}></Route>{" "}
             {/*Will link to github*/}
-            <Route path="/.about()" element={About}></Route>{" "}
+            <Route path="/about()" element={About}></Route>{" "}
             {/*Will link to short about page*/}
           </Routes>
           <Hero />
         </Layout>
-      </div>
+      </StyledApp>
     </Router>
   );
 }
