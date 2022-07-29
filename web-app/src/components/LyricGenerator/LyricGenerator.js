@@ -1,6 +1,7 @@
 import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
+import { davinciCompletion } from "../../secrets";
 
 class LyricGenerator extends React.Component {
   constructor(props) {
@@ -10,7 +11,6 @@ class LyricGenerator extends React.Component {
       pace: "",
       theme: "",
       title: "",
-      file: [],
     };
   }
 
@@ -55,61 +55,44 @@ class LyricGenerator extends React.Component {
       }
     );
   };
-  handleFileChange = (event) => {
-    let files = event.target.files;
-    this.setState(
-      {
-        files: files[0],
-      },
-      () => {
-        console.log(this.state.files);
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const prompt =
+      this.state.title != "" ? `Title: \n${this.state.title}\n` : '' +
+      this.state.genre != "" ? `Genre: ${this.state.genre}\n` : "" +
+      this.state.theme != "" ? `Theme: ${this.state.theme}\n` : '' +
+      `Lyrics:\n`;
+    davinciCompletion(prompt, 
+      (completion) => {
+        console.log(completion);
+        alert(completion);
       }
     );
-    console.log(files[0]);
-  };
+  }
 
   render() {
     console.log(this.state);
     return (
       <div>
         <div>
-          <select id="opts" onChange={this.handleGenreChange}>
-            <option value="Genre1">Genre1</option>
-            <option value="Genre2">Genre2</option>
-            <option value="Genre3">Genre3</option>
-          </select>
+          <input id="genre_input" onChange={this.handleGenreChange} 
+            placeholder="Genre" />
         </div>
         <div>
-          <select id="opts" onChange={this.handleGenreChange}>
-            <option value="Pace1">Pace1</option>
-            <option value="Pace2">Pace2</option>
-            <option value="Pace3">Pace3</option>
-          </select>
+          <input id="pace_input" onChange={this.handlePaceChange} 
+            placeholder="Pace (bpm)" />
         </div>
         <div>
-          <select id="opts" onChange={this.handleGenreChange}>
-            <option value="Theme1">Theme1</option>
-            <option value="Theme2">Theme2</option>
-            <option value="Theme3">Theme3</option>
-          </select>
+          <input id="theme_input" onChange={this.handleThemeChange}
+            placeholder="Theme" />
         </div>
         <div>
-          <input
-            type="text"
-            name="title"
-            placeholder="Your song title"
-            onChange={this.handleTitleChange}
-          />
+          <input id="title_input" onChange={this.handleTitleChange}
+           placeholder="Title" />
         </div>
-        <div>
-          {/* This is just in case we need the song to add lyrics */}
-          <input
-            type="file"
-            name="file"
-            accept="audio/*,.wav,.midi"
-            onChange={(e) => this.handleFileChange(e)}
-          />
-        </div>
+        <button type="submit" value="Submit" onClick={this.handleSubmit}>
+          Submit
+        </button>
       </div>
     );
   }
