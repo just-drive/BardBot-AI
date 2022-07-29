@@ -1,6 +1,7 @@
 import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
+import { openai } from "../../secrets";
 
 class TitleGenerator extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class TitleGenerator extends React.Component {
       genre: "",
       pace: "",
       theme: "",
+      lyrics: "",
     };
   }
 
@@ -22,16 +24,6 @@ class TitleGenerator extends React.Component {
       }
     );
   };
-  handleThemeChange = (event) => {
-    this.setState(
-      {
-        pace: event.target.value,
-      },
-      () => {
-        console.log(this.state.pace);
-      }
-    );
-  };
   handlePaceChange = (event) => {
     this.setState(
       {
@@ -42,32 +34,71 @@ class TitleGenerator extends React.Component {
       }
     );
   };
+  handleThemeChange = (event) => {
+    this.setState(
+      {
+        pace: event.target.value,
+      },
+      () => {
+        console.log(this.state.pace);
+      }
+    );
+  };
+  handleLyricsChange = (event) => {
+    this.setState(
+      {
+        lyrics: event.target.value,
+      },
+      () => {
+        console.log(this.state.lyrics);
+      }
+    );
+  };
+  handleSubmit = async (event) => {
+    alert("All data entered");
+    event.preventDefault();
+
+    const response = await openai.createCompletion({
+      model: "text-davinci-002",
+      prompt: 
+        state.genre != "" ? `Genre: ${this.state.genre}\n` : "" +
+        state.theme != "" ? `Theme: ${this.state.theme}\n` : '' +
+        state.lyrics != "" ? `Lyrics: \n${this.state.lyrics}\n` : '' +
+        `Title:`,
+      temperature: 0.7,
+      max_tokens: 256,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+    });
+
+    console.log(response);
+
+    const title = response.choices[0].text;
+    alert(`Title: ${title}`);
+
+  }
 
   render() {
     console.log(this.state);
     return (
       <div>
         <div>
-          <select id="opts" onChange={this.handleGenreChange}>
-            <option value="Genre1">Genre1</option>
-            <option value="Genre2">Genre2</option>
-            <option value="Genre3">Genre3</option>
-          </select>
+          <input id="genre_input" onChange={this.handleGenreChange} />
         </div>
         <div>
-          <select id="opts" onChange={this.handleGenreChange}>
-            <option value="Pace1">Pace1</option>
-            <option value="Pace2">Pace2</option>
-            <option value="Pace3">Pace3</option>
-          </select>
+          <input id="pace_input" onChange={this.handlePaceChange} 
+            placeholder="Enter a number (BPM) between 40 and 160" />
         </div>
         <div>
-          <select id="opts" onChange={this.handleGenreChange}>
-            <option value="Theme1">Theme1</option>
-            <option value="Theme2">Theme2</option>
-            <option value="Theme3">Theme3</option>
-          </select>
+          <input id="theme_input" onChange={this.handleThemeChange} />
         </div>
+        <div>
+          <textarea id="lyrics_textarea" onChange={this.handleLyricsChange} />
+        </div>
+        <button type="submit" value="Submit" onClick={this.handleSubmit}>
+          Submit
+        </button>
       </div>
     );
   }

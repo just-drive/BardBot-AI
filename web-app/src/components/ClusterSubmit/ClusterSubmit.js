@@ -1,7 +1,7 @@
 import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
-import { Div3, ClusterWrapper } from "./ClusterSubmitStyles";
+import { Div3 } from "./ClusterSubmitStyles";
 
 class ClusterSubmit extends React.Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class ClusterSubmit extends React.Component {
 
   render() {
     return (
-      <ClusterWrapper>
-        <form onSubmit={this.props.onFormSubmit}>
+      <div>
+        <form onSubmit={this.onFormSubmit}>
           <h1>Upload Your Tunes</h1>
           {/* This is for song name */}
           {/* This is for file  */}
@@ -35,7 +35,7 @@ class ClusterSubmit extends React.Component {
             Submit
           </button>
         </form>
-      </ClusterWrapper>
+      </div>
     );
   }
 }

@@ -27,14 +27,12 @@ export const Div3 = styled.div`
   margin: auto;
   position: absolute;
   float: right;
-  top: 10px;
+  top: 0px;
   text-align: right;
-  right: 30%;
+  right: -500%;
   z-index: 100;
   bottom: 100px;
   padding: 20px;
-  margin-top: 20vh;
-  margin-left: 10vh;
   transform: translateX(-50%);
 `;
 
