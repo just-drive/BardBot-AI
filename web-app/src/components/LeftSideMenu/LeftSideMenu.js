@@ -34,13 +34,77 @@ class LeftSideMenu extends React.Component {
       showLyric: false,
       showMotif: false,
       // If true, shows the related component
+      //from cluster sumbit
+      files: [],
+      showSubmit: false,
+      //lyric generator
+      // genre: "",
+      // pace: "",
+      // theme: "",
+      // title: "",
+      // file: [],
+
+      //motif generation
+      //midi2mav & wav 2 midi
+      title: "",
+      description: "",
     };
     this.onButtonClick = this.onButtonClick.bind(this);
     this.onClusterClick = this.onClusterClick.bind(this);
     this.onTitleGeneratorClick = this.onTitleGeneratorClick.bind(this);
     this.onMotifGeneratorClick = this.onMotifGeneratorClick.bind(this);
     this.onLyricGeneratorClick = this.onLyricGeneratorClick.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
   }
+
+  //Cluster submit functions
+  handleFileChange = (event) => {
+    let files = event.target.files;
+    this.setState(
+      {
+        files: files[0],
+      },
+      () => {
+        console.log(this.state.files);
+      }
+    );
+    console.log(files[0]);
+  };
+
+  onFormSubmit = (event) => {
+    alert("All data entered");
+    event.preventDefault();
+  };
+
+  //for midi and wav
+  handleSongNameChange = (event) => {
+    this.setState({
+      title: event.target.value,
+    });
+  };
+  handleDescriptionChange = (event) => {
+    this.setState({
+      description: event.target.value,
+    });
+  };
+
+  // handleFileChange = (event) => {
+  //   let files = event.target.files;
+  //   this.setState(
+  //     {
+  //       files: files[0],
+  //     },
+  //     () => {
+  //       console.log(this.state.files);
+  //     }
+  //   );
+  //   console.log(files[0]);
+  // };
+
+  // onFormSubmit = (event) => {
+  //   alert("All data entered");
+  //   event.preventDefault();
+  // };
 
   // Set all other components to false to only show 1 at a time
   onButtonClick = () => {
@@ -145,6 +209,7 @@ class LeftSideMenu extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <MenuDiv>
         <Div1>
@@ -153,17 +218,46 @@ class LeftSideMenu extends React.Component {
 
           <div>
             <Button onClick={this.onClusterClick}>Clustering</Button>
-            {this.state.showCluster ? <ClusterSubmit /> : null}
+            {this.state.showCluster ? (
+              <ClusterSubmit
+                files={this.state.files}
+                handleFileChange={this.handleFileChange}
+                showCluster={this.state.showCluster}
+                onClusterClick={this.onClusterClick}
+              />
+            ) : null}
             {/* Tracks if you are suppossed to show component */}
           </div>
 
           <div>
             <Button onClick={this.onButtonClick}>midi2wav</Button>
-            {this.state.showComponent ? <SubmitComponent /> : null}
+            {this.state.showComponent ? (
+              <SubmitComponent
+                files={this.state.files}
+                handleFileChange={this.handleFileChange}
+                title={this.state.title}
+                handleSongNameChange={this.handleSongNameChange}
+                description={this.state.description}
+                handleDescriptionChange={this.handleDescriptionChange}
+                showSubmit={this.state.showSubmit}
+                onButtonClick={this.onButtonClick}
+              />
+            ) : null}
           </div>
           <div>
             <Button onClick={this.onButtonClick}>wav2midi</Button>
-            {this.state.showComponent ? <SubmitComponent /> : null}
+            {this.state.showComponent ? (
+              <SubmitComponent
+                files={this.state.files}
+                handleFileChange={this.handleFileChange}
+                title={this.state.title}
+                handleSongNameChange={this.handleSongNameChange}
+                description={this.state.description}
+                handleDescriptionChange={this.handleDescriptionChange}
+                showSubmit={this.state.showSubmit}
+                onButtonClick={this.onButtonClick}
+              />
+            ) : null}
           </div>
         </Div1>
         <Div2>

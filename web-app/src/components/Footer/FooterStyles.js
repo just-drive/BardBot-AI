@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FooterWrapper = styled.section`
   padding: 2rem 48px 40px;
   box-sizing: content-box;
-  position: fixed;
+  position: sticky;
   padding-bottom: 0.5rem;
   bottom: 0;
   padding-top: 0rem;
