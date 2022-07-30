@@ -4,3 +4,4 @@ node_modules
 .idea
 .netlify
 build
+web-app/.env.local
