@@ -1,3 +1,5 @@
+import { openai_api_key } from "secrets/secrets";
+
 const DEFAULT_PARAMS = {
   "model": "text-davinci-002",
   "temperature": 0.7,
@@ -13,7 +15,7 @@ export async function query(params = {}) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+      'Authorization': `Bearer ${openai_api_key}`
     },
     body: JSON.stringify(params_)
   };
