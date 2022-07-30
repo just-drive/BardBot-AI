@@ -19,6 +19,7 @@ React-Typescript-Redux boilerplate with docker to run the code in isolated docke
 
 - `git clone git@github.com:akash4393/react-typescript-redux-docker.git`
 - `cd ./react-typescript-redux-docker`
+- Follow the directions in `.env.example` to set up your environment variables.
 
 ### Start (Dev)
 
