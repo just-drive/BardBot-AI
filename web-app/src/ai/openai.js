@@ -1,11 +1,3 @@
-// this is really bad practice, but it's a quick and dirty way to get the secrets
-const openai_api_key = "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";
-
-// 7/29 17:00: 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
-// 7/29 18:09: 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
-// 7/29 18:26: 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
-// 7/29 18:27: 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
-
 const DEFAULT_PARAMS = {
   "model": "text-davinci-002",
   "temperature": 0.7,
@@ -21,7 +13,7 @@ export async function query(params = {}) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + String(openai_api_key)
+      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
     },
     body: JSON.stringify(params_)
   };
