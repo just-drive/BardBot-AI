@@ -4,4 +4,4 @@ node_modules
 .idea
 .netlify
 build
-web-app/.env.local
+web-app/src/secrets/secrets.js
