@@ -56,6 +56,56 @@ class LeftSideMenu extends React.Component {
     this.onLyricGeneratorClick = this.onLyricGeneratorClick.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
   }
+
+  //Cluster submit functions
+  handleFileChange = (event) => {
+    let files = event.target.files;
+    this.setState(
+      {
+        files: files[0],
+      },
+      () => {
+        console.log(this.state.files);
+      }
+    );
+    console.log(files[0]);
+  };
+
+  onFormSubmit = (event) => {
+    alert("All data entered");
+    event.preventDefault();
+  };
+
+  //for midi and wav
+  handleSongNameChange = (event) => {
+    this.setState({
+      title: event.target.value,
+    });
+  };
+  handleDescriptionChange = (event) => {
+    this.setState({
+      description: event.target.value,
+    });
+  };
+
+  // handleFileChange = (event) => {
+  //   let files = event.target.files;
+  //   this.setState(
+  //     {
+  //       files: files[0],
+  //     },
+  //     () => {
+  //       console.log(this.state.files);
+  //     }
+  //   );
+  //   console.log(files[0]);
+  // };
+
+  // onFormSubmit = (event) => {
+  //   alert("All data entered");
+  //   event.preventDefault();
+  // };
+
   // Set all other components to false to only show 1 at a time
   onButtonClick = () => {
     if (this.state.showComponent) {
@@ -163,8 +213,9 @@ class LeftSideMenu extends React.Component {
     return (
       <MenuDiv>
         <Div1>
-          <h1>Services Available</h1>
-          <h3>Utilities:</h3>
+          <ServicesLabel>Services Available</ServicesLabel>
+          <SectionLabel>Utilities:</SectionLabel>
+
           <div>
             <Button onClick={this.onClusterClick}>Clustering</Button>
             {this.state.showCluster ? (
@@ -210,7 +261,7 @@ class LeftSideMenu extends React.Component {
           </div>
         </Div1>
         <Div2>
-          <h1>Songwriter Tools:</h1>
+          <SectionLabel>Songwriter Tools:</SectionLabel>
           <h3></h3>
           <div>
             <Button onClick={this.onTitleGeneratorClick}>

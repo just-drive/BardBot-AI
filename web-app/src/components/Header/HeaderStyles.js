@@ -7,6 +7,8 @@ export const Nav = styled.nav`
   height: 80px;
   display: flex;
   align-items: center;
+  position: absolute;
+  margin-bottom: 10px;
 `;
 
 export const NavLink = styled(Link)`

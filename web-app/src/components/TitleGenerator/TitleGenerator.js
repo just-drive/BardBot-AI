@@ -60,11 +60,14 @@ class TitleGenerator extends React.Component {
 
     const response = await openai.createCompletion({
       model: "text-davinci-002",
-      prompt: 
-        state.genre != "" ? `Genre: ${this.state.genre}\n` : "" +
-        state.theme != "" ? `Theme: ${this.state.theme}\n` : '' +
-        state.lyrics != "" ? `Lyrics: \n${this.state.lyrics}\n` : '' +
-        `Title:`,
+      prompt:
+        this.state.genre != ""
+          ? `Genre: ${this.state.genre}\n`
+          : "" + this.state.theme != ""
+          ? `Theme: ${this.state.theme}\n`
+          : "" + this.state.lyrics != ""
+          ? `Lyrics: \n${this.state.lyrics}\n`
+          : "" + `Title:`,
       temperature: 0.7,
       max_tokens: 256,
       top_p: 1,
@@ -76,8 +79,7 @@ class TitleGenerator extends React.Component {
 
     const title = response.choices[0].text;
     alert(`Title: ${title}`);
-
-  }
+  };
 
   render() {
     console.log(this.state);
@@ -87,8 +89,11 @@ class TitleGenerator extends React.Component {
           <input id="genre_input" onChange={this.handleGenreChange} />
         </div>
         <div>
-          <input id="pace_input" onChange={this.handlePaceChange} 
-            placeholder="Enter a number (BPM) between 40 and 160" />
+          <input
+            id="pace_input"
+            onChange={this.handlePaceChange}
+            placeholder="Enter a number (BPM) between 40 and 160"
+          />
         </div>
         <div>
           <input id="theme_input" onChange={this.handleThemeChange} />
