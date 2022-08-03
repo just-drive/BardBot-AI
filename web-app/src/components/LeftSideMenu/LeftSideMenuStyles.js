@@ -5,9 +5,13 @@ import { FaBars } from "react-icons/fa";
 export const MenuDiv = styled.div`
   background-color: "transparent";
   width: 15%;
-  height: 70%;
+  min-height: 75vh;
   justify-content: left;
+  margin-top: 200px;
   align-items: left;
+  position: relative;
+  top: 80px;
+  right: 300px;
 `;
 
 export const Div1 = styled.div`
