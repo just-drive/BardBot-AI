@@ -2,7 +2,10 @@ import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import { query } from "../../ai/openai";
-
+import {
+  TitleGeneratorWrapper,
+  TitleGeneratorDisplayWrapper,
+} from "./TitleGeneratorStyles";
 class TitleGenerator extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +14,8 @@ class TitleGenerator extends React.Component {
       pace: "",
       theme: "",
       lyrics: "",
+      titleDisplay: "",
+      completed: false,
     };
   }
 
@@ -69,14 +74,17 @@ class TitleGenerator extends React.Component {
       `Title:`;
     const completion = await query({ prompt: prompt });
     const title = completion.split("\n")[0];
-    console.log(completion, title);
-    alert(title);
+    // Clear all state variables to reset to blank state
+    //alert(title);
+    this.setState({ titleDisplay: title });
+    this.setState({ completed: true });
+    this.setState({ genre: "", theme: "", pace: "", lyrics: "" });
+    console.log(this.state.titleDisplay);
   };
 
   render() {
-    console.log(this.state);
     return (
-      <div>
+      <TitleGeneratorWrapper>
         <div>
           <input
             id="genre_input"
@@ -108,7 +116,13 @@ class TitleGenerator extends React.Component {
         <button type="submit" value="Submit" onClick={this.handleSubmit}>
           Submit
         </button>
-      </div>
+        {/* This is the component that displays the title*/}
+        {this.state.completed ? (
+          <TitleGeneratorDisplayWrapper>
+            Your title is: {this.state.titleDisplay}
+          </TitleGeneratorDisplayWrapper>
+        ) : null}
+      </TitleGeneratorWrapper>
     );
   }
 }

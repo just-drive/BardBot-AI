@@ -2,7 +2,10 @@ import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import { query } from "../../ai/openai";
-
+import {
+  LyricGeneratorWrapper,
+  LyricGeneratorDisplayWrapper,
+} from "./LyricGeneratorStyles";
 class LyricGenerator extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +14,8 @@ class LyricGenerator extends React.Component {
       pace: "",
       theme: "",
       title: "",
+      completed: false,
+      lyricDisplay: "",
     };
   }
 
@@ -71,12 +76,15 @@ class LyricGenerator extends React.Component {
     const completion = await query({ prompt: prompt });
     console.log(completion);
     alert(completion);
+    this.setState({ lyricDisplay: completion });
+    this.setState({ genre: "", theme: "", pace: "", title: "" });
+    this.setState({ completed: true });
   };
 
   render() {
     console.log(this.state);
     return (
-      <div>
+      <LyricGeneratorWrapper>
         <div>
           <input
             id="genre_input"
@@ -108,7 +116,13 @@ class LyricGenerator extends React.Component {
         <button type="submit" value="Submit" onClick={this.handleSubmit}>
           Submit
         </button>
-      </div>
+        {this.state.completed ? (
+          <LyricGeneratorDisplayWrapper>
+            {" "}
+            Your lyrics are: {this.state.lyricDisplay}{" "}
+          </LyricGeneratorDisplayWrapper>
+        ) : null}
+      </LyricGeneratorWrapper>
     );
   }
 }
