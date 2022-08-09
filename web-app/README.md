@@ -23,7 +23,8 @@ React-Typescript-Redux boilerplate with docker to run the code in isolated docke
 
 ### Start (Dev)
 
-- `docker compose up --build`
+- `docker compose up --build` (windows)
+- `docker-compose up --build` (linux/unix)
 - Go to <http://localhost:3000>
 
 ### Start (prod)

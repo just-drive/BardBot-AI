@@ -1,5 +1,5 @@
 import React from "react";
-import { query } from "../../ai/openai";
+import { queryGPT3 } from "../../ai/openai";
 
 class LyricGenerator extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class LyricGenerator extends React.Component {
       (this.state.genre.trim().length != 0 ? `Genre: ${this.state.genre}\n` : '') +
       (this.state.theme.trim().length != 0 ? `Theme: ${this.state.theme}\n` : '') +
       `Lyrics:\n`;
-    const completion = await query({ prompt: prompt });
+    const completion = await queryGPT3({ prompt: prompt });
     alert(completion);
   }
 

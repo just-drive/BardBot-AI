@@ -7,4 +7,5 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     ports:
-      - '1337:80'
+      - '1337:80' # nodejs
+      - '8080:8080' # python

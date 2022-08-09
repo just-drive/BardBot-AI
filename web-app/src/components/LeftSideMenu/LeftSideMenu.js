@@ -5,7 +5,7 @@ import { DiCssdeck } from "react-icons/di";
 import bbai from "../../images/smaller.png";
 import SubmitComponent from "../Submit/SubmitComponent";
 import ClusterSubmit from "../ClusterSubmit/ClusterSubmit";
-import MotifGenerator from "../MotifGenerator/MotifGenerator";
+import MusicGenerator from "../MusicGenerator/MusicGenerator";
 import LyricGenerator from "../LyricGenerator/LyricGenerator";
 import TitleGenerator from "../TitleGenerator/TitleGenerator";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -30,15 +30,15 @@ class LeftSideMenu extends React.Component {
       // Show component is for midi2wav and wav2midi
       showComponent: false,
       showCluster: false,
-      showTitle: false,
-      showLyric: false,
-      showMotif: false,
+      showTitleGen: false,
+      showLyricGen: false,
+      showMusicGen: false,
       // If true, shows the related component
     };
     this.onButtonClick = this.onButtonClick.bind(this);
     this.onClusterClick = this.onClusterClick.bind(this);
     this.onTitleGeneratorClick = this.onTitleGeneratorClick.bind(this);
-    this.onMotifGeneratorClick = this.onMotifGeneratorClick.bind(this);
+    this.onMusicGeneratorClick = this.onMusicGeneratorClick.bind(this);
     this.onLyricGeneratorClick = this.onLyricGeneratorClick.bind(this);
   }
   // Set all other components to false to only show 1 at a time
@@ -47,17 +47,17 @@ class LeftSideMenu extends React.Component {
       this.setState({
         showComponent: false,
         showCluster: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     } else {
       this.setState({
         showComponent: true,
         showCluster: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     }
   };
@@ -67,74 +67,74 @@ class LeftSideMenu extends React.Component {
       this.setState({
         showCluster: false,
         showComponent: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     } else {
       this.setState({
         showCluster: true,
         showComponent: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     }
   };
   onTitleGeneratorClick = () => {
-    if (this.state.showTitle) {
+    if (this.state.showTitleGen) {
       this.setState({
         showCluster: false,
         showComponent: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     } else {
       this.setState({
-        showTitle: true,
+        showTitleGen: true,
         showComponent: false,
-        showCluster: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     }
   };
   onLyricGeneratorClick = () => {
-    if (this.state.showLyric) {
+    if (this.state.showLyricGen) {
       this.setState({
         showCluster: false,
         showComponent: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     } else {
       this.setState({
-        showTitle: false,
+        showTitleGen: false,
         showComponent: false,
-        showCluster: false,
-        showLyric: true,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: true,
+        showMusicGen: false,
       });
     }
   };
-  onMotifGeneratorClick = () => {
-    if (this.state.showMotif) {
+  onMusicGeneratorClick = () => {
+    if (this.state.showMusicGen) {
       this.setState({
         showCluster: false,
         showComponent: false,
-        showTitle: false,
-        showLyric: false,
-        showMotif: false,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: false,
       });
     } else {
       this.setState({
-        showTitle: false,
+        showTitleGen: false,
         showComponent: false,
-        showCluster: false,
-        showLyric: false,
-        showMotif: true,
+        showTitleGen: false,
+        showLyricGen: false,
+        showMusicGen: true,
       });
     }
   };
@@ -171,19 +171,19 @@ class LeftSideMenu extends React.Component {
             <Button onClick={this.onTitleGeneratorClick}>
               Title Generator
             </Button>
-            {this.state.showTitle ? <TitleGenerator /> : null}
+            {this.state.showTitleGen ? <TitleGenerator /> : null}
           </div>
           <div>
             <Button onClick={this.onLyricGeneratorClick}>
               Lyric Generator
             </Button>
-            {this.state.showLyric ? <LyricGenerator /> : null}
+            {this.state.showLyricGen ? <LyricGenerator /> : null}
           </div>
           <div>
-            <Button onClick={this.onMotifGeneratorClick}>
-              Motif Generator
+            <Button onClick={this.onMusicGeneratorClick}>
+              Music Generator
             </Button>
-            {this.state.showMotif ? <MotifGenerator /> : null}
+            {this.state.showMusicGen ? <MusicGenerator /> : null}
           </div>
         </Div2>
       </MenuDiv>

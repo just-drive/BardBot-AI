@@ -1,0 +1,54 @@
+
+
+(title: str, lyrics: str?) -> Waveform | MIDI
+
+1. Find a model(s) that does this
+2. Build a model that does this
+
+RNN, LSTM, Transformer
+
+
+
+---------
+
+app.py 8000
+reactjs.js 80, 443
+
+---
+
+
+server.start(getMusicFile, port=987)
+
+def getMusicFile(params):
+	....
+	generate music
+	save music to /public/music dir
+	returns "/public/music/file.wav"
+	
+--------
+
+openai.js
+
+function getMusicFile(params) {
+	return axois.post("https://python.com:845", body=params);
+}
+
+-------
+
+music completion component .js
+
+function submit(e) {
+	const params = {...};
+	
+	const path = openai.getMusicFile(params);
+	
+	setState({"path": path});
+}
+
+<audio src={this.state.path} /> GET https://webserver.com/public/music/file.wav
+
+
+
+POST https://our-server.com:987/
+
+

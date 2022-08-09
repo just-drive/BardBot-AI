@@ -1,6 +1,8 @@
 # build environment
 FROM node:13.12.0-alpine as build
 WORKDIR /app
+
+#### THIS IS FOR THE NODEJS SERVER ####
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
@@ -9,10 +11,23 @@ RUN npm install react-scripts@4.0.3 -g
 COPY . ./
 RUN npm run build
 
+### THIS IS FOR THE PYTHON SERVER ###
+WORKDIR /app/python-server
+#USER root
+RUN apk update
+RUN apk add python3
+RUN python3 --version
+RUN pip3 install -r requirements.txt
+#USER node
+WORKDIR /app
+
 # production environment
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 # to make react-router work with nginx
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80 # nginx (nodejs prod mode)
+EXPOSE 8080 python
+#CMD ["nginx", "-g", "daemon off;"]
+
+CMD ["sh", "startup.prod.sh"]

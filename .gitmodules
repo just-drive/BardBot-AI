@@ -1,0 +1,3 @@
+[submodule "web-app/python-server/tegridy-tools"]
+	path = web-app/python-server/tegridy-tools
+	url = https://github.com/asigalov61/tegridy-tools
