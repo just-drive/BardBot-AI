@@ -1,9 +1,7 @@
 import assert from "assert";
 import { randomInt } from "crypto";
 import { openai_api_key } from "secrets/secrets";
-import { genreOptions } from "./genreOptions";
-
-export { genreOptions } from "./genreOptions";
+import { genreOptions as genreOptionsList } from "./genreOptions";
 
 export const GPT3_DEFAULT_PARAMS = {
   model: "text-davinci-002",
@@ -78,13 +76,14 @@ export async function queryMuseNet(params: {
   truncation: number, 
 }): Promise<string> {
   const params_ = { ...MUSENET_DEFAULT_PARAMS, ...params };
-  assert(params_.genre in genreOptions, "Invalid genre");
-  assert(params_.fname.length > 0, "Invalid fname");
-  assert(params_.temperature >= 0 && params.temperature <= 1, "Invalid temperature");
+  //assert(params_.genre in genreOptionsList, "Invalid genre");
+  //assert(params_.fname.length > 0, "Invalid fname");
+  //assert(params_.temperature >= 0 && params.temperature <= 1, "Invalid temperature");
   
   // query localhost:8000 with the given parameters
   const response = await fetch(`http://localhost:8000/`, {
     method: 'POST',
+    mode: "cors",
     headers: {
       'Content-Type': 'application/json'
     },

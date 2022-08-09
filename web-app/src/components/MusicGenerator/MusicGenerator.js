@@ -65,7 +65,7 @@ class MusicGenerator extends React.Component {
       <div>
         <div>
           <select
-            id="genreOptions"
+            id="genreOptions_input"
             value={this.state.genre}
             onChange={this.handleGenreChange}>
             {genreOptions.map(genre => (
