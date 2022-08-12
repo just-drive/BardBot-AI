@@ -1,7 +1,6 @@
-import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
-import { query } from "../../ai/openai";
+import { queryGPT3 } from "../../ai/openai";
 import {
   LyricGeneratorWrapper,
   LyricGeneratorDisplayWrapper,
@@ -44,7 +43,7 @@ class LyricGenerator extends React.Component {
         ? `Theme: ${this.state.theme}\n`
         : "") +
       `Lyrics:\n`;
-    const completion = await query({ prompt: prompt });
+    const completion = await queryGPT3({ prompt: prompt });
     console.log(completion);
     alert(completion);
     this.setState({ lyricDisplay: completion });

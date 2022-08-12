@@ -1,7 +1,6 @@
-import axios, { post } from "axios";
 import React, { useState, useRef } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
-import { query } from "../../ai/openai";
+import { queryGPT3 } from "../../ai/openai";
 import {
   TitleGeneratorWrapper,
   TitleGeneratorDisplayWrapper,
@@ -44,7 +43,7 @@ class TitleGenerator extends React.Component {
         ? `Lyrics: \n${this.state.lyrics}\n`
         : "") +
       `Title:`;
-    const completion = await query({ prompt: prompt });
+    const completion = await queryGPT3({ prompt: prompt });
     const title = completion.split("\n")[0];
     // Clear all state variables to reset to blank state
     //alert(title);
