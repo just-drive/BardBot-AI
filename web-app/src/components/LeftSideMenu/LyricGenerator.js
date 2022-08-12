@@ -35,11 +35,11 @@ function LyricGenerator(props) {
         <input {...form.text('genre')} placeholder="Genre" /><br />
         <input {...form.text('theme')} placeholder="Theme" /><br />
         <label>Completions courtesy OpenAI DaVinci API</label><br />
-        <button type="submit" disabled={!form.changed()}>Generate!</button>
+        <button type="submit">Generate!</button>
       </form>
       {outputs.length > 0 ? (
         <PanelContentOutputWrapper>
-          Suggested lyrics for {form.values.title()}:<br />{outputs}
+          Suggested lyrics for {form.values.title}:<br />{outputs}
         </PanelContentOutputWrapper>
       ) : null}
     </PanelWrapper>

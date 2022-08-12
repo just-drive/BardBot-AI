@@ -18,26 +18,6 @@ const Container = styled.div`
   margin: auto;
   height: 100%;
 `;
-//// ReactDOM.render(
-////   <React.StrictMode>
-////     <Container>
-////       <Header />
-////       <main>
-////         <Router>
-////           <Routes>
-////             <Route path="/" element={App}></Route>
-////             <Route path="/source_code" element={SourceCode}></Route>{" "}
-////             {/*Will link to github*/}
-////             <Route path="/about" element={About}></Route>{" "}
-////             {/*Will link to short about page*/}
-////           </Routes>
-////         </Router>
-////       </main>
-////       <Footer />
-////     </Container>
-////   </React.StrictMode>,
-////   document.getElementById('root'),
-//// );
 
 ReactDOM.render(
   <React.StrictMode>

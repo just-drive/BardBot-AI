@@ -73,9 +73,9 @@ export async function queryMuseNet(params: {
 }): Promise<string> {
   // accumulate the params
   const params_ = { ...MUSENET_DEFAULT_PARAMS, ...params };
-  // query localhost:8000 with the given parameters
-  const response = await fetch(`http://localhost:8000/`, {
-    method: 'POST', mode: "cors",
+  // query localhost:1234 with the given parameters
+  const response = await fetch(`http://localhost:1234/`, {
+    method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(params_)
   });

@@ -63,18 +63,9 @@ export const ServicesLabel = styled.h1`
 
 export const PanelWrapper = styled.div`
   max-width: 100px;
-  align-content: center;
   justify-content: space-around;
   margin: auto;
-  position: absolute;
-  float: right;
-  top: 0px;
-  text-align: right;
-  right: -500%;
-  z-index: 100;
-  bottom: 100px;
-  padding: 20px;
-  transform: translateX(-50%);
+  float: left;
 `;
 
 export const PanelContentOutputWrapper = styled.div`

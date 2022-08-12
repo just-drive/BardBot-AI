@@ -90,6 +90,9 @@ class MuseNetQueryServer(BaseHTTPRequestHandler):
         print('Returning json data...')
         return_data = {'filepath': wav_filepath}
         self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST')
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
         self.send_header("Content-type", "application/json")
         self.end_headers()
         self.wfile.write(bytes(json.dumps(return_data), "utf8"))
@@ -241,7 +244,7 @@ def generate_midi(
 
 
 hostName = "localhost" # TODO: maybe change this for production
-serverPort = 8080 # this const is also specified in the dockerfile
+serverPort = 1234 # this const is also specified in the dockerfile
 
 if __name__ == "__main__":        
     webServer = HTTPServer((hostName, serverPort), MuseNetQueryServer)

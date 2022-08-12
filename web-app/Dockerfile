@@ -41,4 +41,4 @@ CMD ["sh", "startup.sh"]
 # nodejs
 EXPOSE 3000 
 # python
-EXPOSE 8080 
+EXPOSE 1234 

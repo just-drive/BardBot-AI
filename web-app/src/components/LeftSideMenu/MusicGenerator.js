@@ -27,13 +27,13 @@ function MusicGenerator(props) {
             <option {...form.option(index)}>{genre}</option>
           ))}
         </select><br />
-        <input {...form.checkbox('piano')} /><br />
-        <input {...form.checkbox('strings')} /><br />
-        <input {...form.checkbox('winds')} /><br />
-        <input {...form.checkbox('drums')} /><br />
-        <input {...form.checkbox('harp')} /><br />
-        <input {...form.checkbox('guitar')} /><br />
-        <input {...form.checkbox('bass')} /><br />
+        <label>Piano:</label><input {...form.checkbox('piano')} /><br />
+        <label>Strings:</label><input {...form.checkbox('strings')} /><br />
+        <label>Winds:</label><input {...form.checkbox('winds')} /><br />
+        <label>Drums:</label><input {...form.checkbox('drums')} /><br />
+        <label>Harp:</label><input {...form.checkbox('harp')} /><br />
+        <label>Guitar:</label><input {...form.checkbox('guitar')} /><br />
+        <label>Bass:</label><input {...form.checkbox('bass')} /><br />
         <input
           {...form.text('fname')}
           placeholder="filename"
@@ -49,11 +49,11 @@ function MusicGenerator(props) {
           min="0" max="2" step="0.05"
           placeholder="temperature" /><br />
         <label>Music courtesy OpenAI MuseNet API</label><br />
-        <button type="submit" disabled={!form.changed()}>Generate!</button>
+        <button type="submit">Generate!</button>
       </form>
       {outputs.length > 0 ? (
         <PanelContentOutputWrapper>
-          Suggested lyrics for {form.values.title()}:<br />{outputs}
+          Suggested lyrics for {form.values.title}:<br />{outputs}
         </PanelContentOutputWrapper>
       ) : null}
     </PanelWrapper>

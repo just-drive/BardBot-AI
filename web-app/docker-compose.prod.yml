@@ -8,4 +8,4 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - '1337:80' # nodejs
-      - '8080:8080' # python
+      - '1234:1234' # python

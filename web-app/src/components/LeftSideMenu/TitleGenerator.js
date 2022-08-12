@@ -39,7 +39,7 @@ function TitleGenerator(props) {
           placeholder="Lyrics">
         </textarea><br />
         <label>Completions courtesy OpenAI DaVinci API</label><br />
-        <button type="submit" disabled={!form.changed()}>Generate!</button>
+        <button type="submit">Generate!</button>
       </form>
       {outputs.length > 0 ? (
         <PanelContentOutputWrapper>
