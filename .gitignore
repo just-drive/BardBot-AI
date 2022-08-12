@@ -5,3 +5,4 @@ node_modules
 .netlify
 build
 web-app/src/secrets/secrets.js
+web-app/public/music/*

@@ -82,13 +82,10 @@ export async function queryMuseNet(params: {
   
   // query localhost:8000 with the given parameters
   const response = await fetch(`http://localhost:8000/`, {
-    method: 'POST',
-    mode: "cors",
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    method: 'POST', mode: "cors",
+    headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(params_)
   });
   const data = await response.json();
-  return data.filename;
+  return data.filepath;
 }
