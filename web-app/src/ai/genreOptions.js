@@ -1,4 +1,4 @@
-export const genreOptions = [
+const genreOptions = [
   "chopin",
   "mozart",
   "rachmaninoff",
@@ -605,3 +605,4 @@ export const genreOptions = [
   "emersonlakeandpalmer",
   "tvthemes"
 ];
+export default genreOptions;

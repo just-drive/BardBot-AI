@@ -1,21 +1,14 @@
-import bbai from "../../images/smaller.png";
-import { Link } from "react-router-dom";
-import React from "react";
-import { AiFillGithub } from "react-icons/ai";
-import { DiCssdeck } from "react-icons/di";
-import { Nav, NavLink, Bars, NavMenu } from "./HeaderStyles";
-import { ThemeProvider } from "styled-components";
-import Toggle from "../ThemeToggle/Toggle";
 import { useDarkMode } from "components/ThemeToggle/userDarkMode";
-import { GlobalStyles } from "pages/App/global";
-import { darkTheme, lightTheme } from "components/ThemeToggle/themes";
+import { ThemeProvider } from "styled-components";
+import bbai from "../../images/smaller.png";
+import Toggle from "../ThemeToggle/Toggle";
+import { NavLink } from "./HeaderStyles";
+import { GlobalStyles } from "global";
 import {
   AppBar,
-  makeStyles,
-  Typography,
-  Toolbar,
-  InputBase,
+  makeStyles, Toolbar, Typography
 } from "@material-ui/core";
+import { darkTheme, lightTheme } from "components/ThemeToggle/themes";
 const useStyles = makeStyles((Theme) => ({
   appbar: {
     backgroundColor: "transparent",
@@ -58,25 +51,25 @@ const Header = () => {
       <AppBar className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.logoLg}>
-            <div class="left">
+            <div className="left">
               <NavLink to="/">
-                <img src={bbai} alt="Logo" exact />
+                <img src={bbai} alt="Logo" />
               </NavLink>
             </div>
           </Typography>
           <Typography variant="h6">
-            <NavLink to="/about" activestyle>
-              .about()
+            <NavLink to="/about">
+              <code>.about()</code>
             </NavLink>
           </Typography>
           <Typography variant="h6">
-            <NavLink to="/" activestyle>
-              .contactUs()
+            <NavLink to="https://github.com/just-drive/BardBot-AI">
+              <code>.contactUs()</code>
             </NavLink>
           </Typography>
           <Typography variant="h6">
-            <a href="https://github.com/just-drive/BardBot-AI" activestyle>
-              .sourceCode()
+            <a href="https://github.com/just-drive/BardBot-AI">
+              <code>.sourceCode()</code>
             </a>
           </Typography>
           <Typography variant="h6">
@@ -86,9 +79,6 @@ const Header = () => {
               <GlobalStyles />
             </ThemeProvider>
           </Typography>
-          {/* <Typography variant="h6" className={classes.logoSm}>
-            Not Hello
-          </Typography> */}
         </Toolbar>
       </AppBar>
     </>

@@ -1,7 +1,4 @@
-import assert from "assert";
-import { randomInt } from "crypto";
 import { openai_api_key } from "secrets/secrets";
-import { genreOptions as genreOptionsList } from "./genreOptions";
 
 export const GPT3_DEFAULT_PARAMS = {
   model: "text-davinci-002",
@@ -47,17 +44,16 @@ export const MUSENET_DEFAULT_PARAMS = {
   strings: true,
   winds: true,
   drums: true,
-  harp: true,
-  guitar: true,
-  bass: true,
-  fname: Math.random().toString(36).substring(7),
-  number_of_tokens_to_generate: 512,
-  temperature: 1.2,
+  harp: false,
+  guitar: false,
+  bass: false,
+  fname: "My-Song",
+  number_of_tokens_to_generate: 128,
+  temperature: 0.65,
   truncation: 0,
 };
 
 /**
- * 
  * @param params Self-explanatory
  * @returns The filename of the generated audio file
  */
@@ -75,17 +71,15 @@ export async function queryMuseNet(params: {
   temperature: number,
   truncation: number, 
 }): Promise<string> {
+  // accumulate the params
   const params_ = { ...MUSENET_DEFAULT_PARAMS, ...params };
-  //assert(params_.genre in genreOptionsList, "Invalid genre");
-  //assert(params_.fname.length > 0, "Invalid fname");
-  //assert(params_.temperature >= 0 && params.temperature <= 1, "Invalid temperature");
-  
   // query localhost:8000 with the given parameters
   const response = await fetch(`http://localhost:8000/`, {
     method: 'POST', mode: "cors",
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(params_)
   });
+  // return the filename of the generated audio file
   const data = await response.json();
   return data.filepath;
 }

@@ -1,15 +1,11 @@
 import React from "react";
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
-import DownloadFile from "../DownloadFile/DownloadFile";
+import { AiFillGithub } from "react-icons/ai";
 
 import { SocialIcons } from "../Header/HeaderStyles";
 import {
   CompanyContainer,
   FooterWrapper,
-  LinkColumn,
-  LinkItem,
   LinkList,
-  LinkTitle,
   Slogan,
   SocialContainer,
   SocialIconsContainer,
@@ -19,7 +15,7 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <LinkList></LinkList>
-      <DownloadFile />
+      {/*<DownloadFile />*/}
       <SocialIconsContainer>
         <CompanyContainer>
           <Slogan>The Bot for Creative Minds.</Slogan>
