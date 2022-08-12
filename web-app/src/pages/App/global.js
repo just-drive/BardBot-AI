@@ -24,4 +24,5 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: all 0.25s linear;
+    width: 100%;
   }`;

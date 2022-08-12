@@ -7,31 +7,12 @@ class ClusterSubmit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      files: [],
-      showSubmit: false,
+      // files: [],
+      // showSubmit: false,
     };
   }
 
-  handleFileChange = (event) => {
-    let files = event.target.files;
-    this.setState(
-      {
-        files: files[0],
-      },
-      () => {
-        console.log(this.state.files);
-      }
-    );
-    console.log(files[0]);
-  };
-
-  onFormSubmit = (event) => {
-    alert("All data entered");
-    event.preventDefault();
-  };
-
   render() {
-    console.log(this.state);
     return (
       <div>
         <form onSubmit={this.onFormSubmit}>
@@ -43,10 +24,14 @@ class ClusterSubmit extends React.Component {
             type="file"
             name="file"
             accept="audio/*,.wav,.midi"
-            onChange={(e) => this.handleFileChange(e)}
+            onChange={(e) => this.props.handleFileChange(e)}
           />
           {/* This is submit button */}
-          <button type="submit" value="Submit">
+          <button
+            type="submit"
+            value="Submit"
+            onClick={this.props.onClusterClick}
+          >
             Submit
           </button>
         </form>

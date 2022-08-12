@@ -3,15 +3,15 @@ import { NavLink as Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 //#90ee90;
 export const MenuDiv = styled.div`
-  background-color: #008000;
-  min-height: 75vh;
-  positon: absolute;
-  padding-top: 2rem;
-  padding-bottom: 2.5rem;
+  background-color: "transparent";
   width: 15%;
-  bottom: 10px;
-  margin-bottom: 100px;
-  left: 100px;
+  min-height: 75vh;
+  justify-content: left;
+  margin-top: 200px;
+  align-items: left;
+  position: relative;
+  top: 80px;
+  right: 300px;
 `;
 
 export const Div1 = styled.div`
@@ -22,8 +22,8 @@ export const Div1 = styled.div`
 `;
 export const Div2 = styled.div`
   background-color: transparent;
-  padding-bottom: 2.5rem;
-  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
   margin-top: 100px;
 `;
 
