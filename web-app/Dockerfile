@@ -29,6 +29,7 @@ WORKDIR /usr/src/app/python-server
 RUN apk update
 RUN apk add python3
 RUN python3 --version
+RUN apk add fluidsynth
 RUN pip3 install -r requirements.txt
 #USER node
 WORKDIR /usr/src/app

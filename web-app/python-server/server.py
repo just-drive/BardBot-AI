@@ -92,10 +92,20 @@ class MuseNetQueryServer(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'POST')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With");
         self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
         self.send_header("Content-type", "application/json")
         self.end_headers()
         self.wfile.write(bytes(json.dumps(return_data), "utf8"))
+
+    def do_OPTIONS(self):
+        self.send_response(200, "ok")
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With");
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
+        self.send_header("Content-type", "application/json")
+        self.end_headers()
 
 # MuseNet Companion notebook (ver 0.7)
 # Powered by tegridy-tools: https://github.com/asigalov61/tegridy-tools
